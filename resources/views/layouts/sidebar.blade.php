@@ -65,6 +65,329 @@
             </ul>
           </li>
           @endif
+
+          @if(auth()->user()->id_role == 3)
+          <li class="nav-item {{ ( (request()->is('surat-masuk*')) or (request()->is('surat-keluar*')) or (request()->is('surat-disposisi*')) ) ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link {{ ( (request()->is('surat-masuk*')) or (request()->is('surat-keluar*')) or (request()->is('surat-disposisi*')) ) ? 'active' : '' }}">
+              <i class="nav-icon fas fa-file-alt"></i>
+              <p>
+                Surat Dinas
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('surat-masuk.create') }}" class="nav-link {{ ( (request()->is('surat-masuk/create')) ) ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Registrasi Surat Masuk</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('surat-keluar.create') }}" class="nav-link {{ ( (request()->is('surat-keluar/create')) ) ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Registrasi Surat Keluar</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('surat-masuk.index') }}" class="nav-link {{ ( (request()->is('surat-masuk')) ) ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Daftar Surat Masuk</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('surat-keluar.index') }}" class="nav-link {{ ( (request()->is('surat-keluar')) ) ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Daftar Surat Keluar</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('surat-disposisi.index') }}" class="nav-link {{ ( (request()->is('surat-disposisi*')) ) ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Disposisi</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item {{ ( (request()->is('log-surat-masuk*')) or (request()->is('log-surat-keluar*')) or (request()->is('log-disposisi*')) ) ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link {{ ( (request()->is('log-surat-masuk*')) or (request()->is('log-surat-keluar*')) or (request()->is('log-disposisi*')) ) ? 'active' : '' }}">
+              <i class="nav-icon fas fa-file-alt"></i>
+              <p>
+                Log Surat
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('log-surat-masuk.index') }}" class="nav-link {{ ( (request()->is('log-surat-masuk*')) ) ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Surat Masuk</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('log-surat-keluar.index') }}" class="nav-link {{ ( (request()->is('log-surat-keluar*')) ) ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Surat Keluar</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('log-disposisi.index') }}" class="nav-link {{ ( (request()->is('log-disposisi*')) ) ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Disposisi</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item {{ ( (request()->is('daftar-penandatangan*')) or (request()->is('daftar-verifikator*')) or (request()->is('daftar-tujuan*')) or (request()->is('daftar-grup-tujuan*')) or (request()->is('daftar-tembusan*')) ) ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link {{ ( (request()->is('daftar-penandatangan*')) or (request()->is('daftar-verifikator*')) or (request()->is('daftar-tujuan*')) or (request()->is('daftar-grup-tujuan*')) or (request()->is('daftar-tembusan*')) ) ? 'active' : '' }}">
+              <i class="nav-icon fas fa-cogs"></i>
+              <p>
+                Pengaturan
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('daftar-penandatangan.index') }}" class="nav-link {{ ( (request()->is('daftar-penandatangan*')) ) ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Daftar Penandatangan</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('daftar-verifikator.index') }}" class="nav-link {{ ( (request()->is('daftar-verifikator*')) ) ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Daftar Verifikator</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('tujuan.index') }}" class="nav-link {{ ( (request()->is('daftar-tujuan*')) ) ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Daftar Tujuan</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('daftar-grup-tujuan.index') }}" class="nav-link {{ ( (request()->is('daftar-grup-tujuan*')) ) ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Daftar Grup Tujuan</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('daftar-tembusan.index') }}" class="nav-link {{ ( (request()->is('daftar-tembusan*')) ) ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Daftar Tembusan</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          @endif
+
+          @if(auth()->user()->id_role == 4)
+          <li class="nav-item">
+            <a href="surat/tandatangan" class="nav-link">
+              <i class="nav-icon fas fa-home"></i>
+              <p>
+                Tandatangan Surat
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="surat/verifikasi" class="nav-link">
+              <i class="nav-icon fas fa-home"></i>
+              <p>
+                Verifikasi Surat
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-building"></i>
+              <p>
+                Surat Dinas
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="suratkeluar/create" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Registrasi Surat Keluar</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="surat/utama" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Daftar Surat Masuk</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="daftar-surat-keluar" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Daftar Surat Keluar</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-building"></i>
+              <p>
+                Disposisi
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="surat/disposisi" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Daftar Disposisi</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="log-disposisi" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Log Disposisi</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="surat/tembusan" class="nav-link">
+              <i class="nav-icon fas fa-home"></i>
+              <p>
+                Daftar Tembusan
+              </p>
+            </a>
+          </li>
+          @endif
+
+
+          {{-- ADMIN OPD TDNE --}}
+          @if(auth()->user()->id_role == 5)
+          <li class="nav-item {{ ( (request()->is('surat-masuk*')) or (request()->is('naskah-keluar*')) or (request()->is('surat-disposisi*')) or (request()->is('template-naskah*')) ) ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link {{ ( (request()->is('surat-masuk*')) or (request()->is('naskah-keluar*')) or (request()->is('surat-disposisi*'))  or (request()->is('template-naskah*')) ) ? 'active' : '' }}">
+              <i class="nav-icon fas fa-file-alt"></i>
+              <p>
+                Naskah Dinas
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              {{-- <li class="nav-item">
+                <a href="{{ route('surat-masuk.create') }}" class="nav-link {{ ( (request()->is('surat-masuk/create')) ) ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Registrasi Naskah Masuk</p>
+                </a>
+              </li> --}}
+              <li class="nav-item">
+                <a href="{{ route('naskah-keluar.create') }}" class="nav-link {{ ( (request()->is('naskah-keluar/create')) ) ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Buat Naskah Keluar</p>
+                </a>
+              </li>
+              {{-- <li class="nav-item">
+                <a href="{{ route('surat-masuk.index') }}" class="nav-link {{ ( (request()->is('surat-masuk')) ) ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Daftar Naskah Masuk</p>
+                </a>
+              </li> --}}
+              <li class="nav-item">
+                <a href="{{ route('naskah-keluar.index') }}" class="nav-link {{ ( (request()->is('naskah-keluar')) ) ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Daftar Naskah Keluar</p>
+                </a>
+              </li>
+              {{-- <li class="nav-item">
+                <a href="{{ route('surat-disposisi.index') }}" class="nav-link {{ ( (request()->is('surat-disposisi*')) ) ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Disposisi</p>
+                </a>
+              </li> --}}
+              <li class="nav-item">
+                <a href="{{ route('template-naskah.index') }}" class="nav-link {{ ( (request()->is('template-naskah')) ) ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Template Naskah</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          {{-- <li class="nav-item {{ ( (request()->is('log-surat-masuk*')) or (request()->is('log-surat-keluar*')) or (request()->is('log-disposisi*')) ) ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link {{ ( (request()->is('log-surat-masuk*')) or (request()->is('log-surat-keluar*')) or (request()->is('log-disposisi*')) ) ? 'active' : '' }}">
+              <i class="nav-icon fas fa-file-alt"></i>
+              <p>
+                Log Surat
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('log-surat-masuk.index') }}" class="nav-link {{ ( (request()->is('log-surat-masuk*')) ) ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Surat Masuk</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('log-surat-keluar.index') }}" class="nav-link {{ ( (request()->is('log-surat-keluar*')) ) ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Surat Keluar</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('log-disposisi.index') }}" class="nav-link {{ ( (request()->is('log-disposisi*')) ) ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Disposisi</p>
+                </a>
+              </li>
+            </ul>
+          </li> --}}
+
+          <li class="nav-item {{ ( (request()->is('daftar-penandatangan*')) or (request()->is('daftar-verifikator*')) or (request()->is('daftar-tujuan*')) or (request()->is('daftar-grup-tujuan*')) or (request()->is('daftar-tembusan*')) ) ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link {{ ( (request()->is('daftar-penandatangan*')) or (request()->is('daftar-verifikator*')) or (request()->is('daftar-tujuan*')) or (request()->is('daftar-grup-tujuan*')) or (request()->is('daftar-tembusan*')) ) ? 'active' : '' }}">
+              <i class="nav-icon fas fa-cogs"></i>
+              <p>
+                Pengaturan
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('daftar-penandatangan.index') }}" class="nav-link {{ ( (request()->is('daftar-penandatangan*')) ) ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Daftar Penandatangan</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('daftar-verifikator.index') }}" class="nav-link {{ ( (request()->is('daftar-verifikator*')) ) ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Daftar Verifikator</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('tujuan.index') }}" class="nav-link {{ ( (request()->is('daftar-tujuan*')) ) ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Daftar Tujuan</p>
+                </a>
+              </li>
+              {{-- <li class="nav-item">
+                <a href="{{ route('daftar-grup-tujuan.index') }}" class="nav-link {{ ( (request()->is('daftar-grup-tujuan*')) ) ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Daftar Grup Tujuan</p>
+                </a>
+              </li> --}}
+              <li class="nav-item">
+                <a href="{{ route('daftar-tembusan.index') }}" class="nav-link {{ ( (request()->is('daftar-tembusan*')) ) ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Daftar Tembusan</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          @endif
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

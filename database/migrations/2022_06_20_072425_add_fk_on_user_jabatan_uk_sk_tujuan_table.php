@@ -25,6 +25,18 @@ return new class extends Migration
             ->on('jabatans')
             ->onDelete('cascade')
             ->onUpdate('cascade');
+
+            $table->foreign('id_unitkerja')
+            ->references('id')
+            ->on('unitkerjas')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+
+            $table->foreign('id_opd')
+            ->references('id')
+            ->on('opds')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
         });
 
         Schema::table('unitkerjas', function (Blueprint $table) {
@@ -49,8 +61,14 @@ return new class extends Migration
             ->onUpdate('cascade');
         });
 
-        Schema::table('tujuanexternals', function (Blueprint $table) {
+        Schema::table('tujuans', function (Blueprint $table) {
             $table->foreign('id_create')
+            ->references('id')
+            ->on('users')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+
+            $table->foreign('id_internal')
             ->references('id')
             ->on('users')
             ->onDelete('cascade')
@@ -58,7 +76,25 @@ return new class extends Migration
         });
 
         Schema::table('suratkeluars', function (Blueprint $table) {
-            $table->foreign('pengirim')
+            $table->foreign('id_pengirim')
+            ->references('id')
+            ->on('users')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+
+            $table->foreign('id_verifikator')
+            ->references('id')
+            ->on('verifikators')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+
+            $table->foreign('id_ttd')
+            ->references('id')
+            ->on('tandatangans')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+
+            $table->foreign('id_tujuan')
             ->references('id')
             ->on('users')
             ->onDelete('cascade')
@@ -73,6 +109,12 @@ return new class extends Migration
             $table->foreign('id_create')
             ->references('id')
             ->on('users')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+
+            $table->foreign('id_jenissurat')
+            ->references('id')
+            ->on('jenissurats')
             ->onDelete('cascade')
             ->onUpdate('cascade');
         });

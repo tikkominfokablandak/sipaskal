@@ -15,16 +15,22 @@ return new class extends Migration
     {
         Schema::create('suratkeluars', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('pengirim')->unsigned()->index();
-            $table->string('jenis_surat');
+            $table->integer('id_pengirim')->unsigned()->index();
+            $table->integer('id_verifikator')->unsigned()->index();
+            $table->integer('id_ttd')->unsigned()->index();
+            $table->unsignedInteger('id_jenissurat')->index();
             $table->string('sifat_surat');
             $table->string('tingkat_urgen');
             $table->string('no_surat');
+            $table->date('tgl_surat')->nullable();
             $table->string('perihal');
             $table->string('isi');
             $table->string('file_surat');
             $table->string('lamp_surat');
-            $table->string('tujuan_surat');
+            $table->integer('id_tujuan')->unsigned()->index();
+            $table->string('nama_tujuan')->nullable();
+            $table->string('jabatan_tujuan')->nullable();
+            $table->string('instansi_tujuan')->nullable();
             $table->string('tembusan');
             $table->string('ket');
             $table->string('no_agenda');

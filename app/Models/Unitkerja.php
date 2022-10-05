@@ -30,4 +30,9 @@ class Unitkerja extends Model
     {
         return $this->belongsTo(Opd::class);
     }
+
+    public function user()
+    {
+        return $this->hasOne(User::class);
+    }
 }

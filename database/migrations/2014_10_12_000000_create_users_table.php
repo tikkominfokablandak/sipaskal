@@ -24,8 +24,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            // $table->integer('id_opd')->unsigned()->index();
-            // $table->integer('id_unitkerja')->unsigned()->index();
+            $table->integer('id_opd')->unsigned()->index();
+            $table->integer('id_unitkerja')->unsigned()->index();
             $table->integer('id_jabatan')->unsigned()->index();
             $table->string('pangkat');
             $table->string('jenis_user');

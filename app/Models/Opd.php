@@ -29,4 +29,9 @@ class Opd extends Model
     {
         return $this->hasMany(Jabatan::class);
     }
+
+    public function user()
+    {
+        return $this->hasOne(User::class);
+    }
 }

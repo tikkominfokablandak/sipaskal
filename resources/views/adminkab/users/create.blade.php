@@ -154,14 +154,14 @@
                             <div class="form-group">
                                 <label>OPD</label>
 
-                                <select id="select_opd" name="opd" data-placeholder="Pilih OPD" class="form-control @error('select_opd') is-invalid @enderror" style="width: 100%;" required oninvalid="this.setCustomValidity('Mohon pilih OPD dahulu!')" oninput="setCustomValidity('')">
+                                <select id="select_opd" name="id_opd" data-placeholder="Pilih OPD" class="form-control @error('select_opd') is-invalid @enderror" style="width: 100%;" required oninvalid="this.setCustomValidity('Mohon pilih OPD dahulu!')" oninput="setCustomValidity('')">
                                 </select>
                             </div>
 
                             <div class="form-group">
                                 <label>Unit Kerja</label>
 
-                                <select id="select_unitkerja" name="unitkerja" data-placeholder="Pilih Unit Kerja" class="form-control @error('select_unitkerja') is-invalid @enderror" style="width: 100%;" required oninvalid="this.setCustomValidity('Mohon pilih Unit Kerja dahulu!')" oninput="setCustomValidity('')">
+                                <select id="select_unitkerja" name="id_unitkerja" data-placeholder="Pilih Unit Kerja" class="form-control @error('select_unitkerja') is-invalid @enderror" style="width: 100%;" required oninvalid="this.setCustomValidity('Mohon pilih Unit Kerja dahulu!')" oninput="setCustomValidity('')">
                                 </select>
                             </div>
 
@@ -345,7 +345,7 @@ $(document).ready(function() {
             $("#select_jabatan").empty();
         }
     });
-    //  Event on change select regency:end
+    //  Event on change select unitkerja:end
 
     // EVENT ON CLEAR
     $('#select_opd').on('select2:clear', function(e) {

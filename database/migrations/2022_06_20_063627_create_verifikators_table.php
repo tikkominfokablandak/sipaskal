@@ -13,15 +13,26 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tujuanexternals', function (Blueprint $table) {
+        Schema::create('verifikators', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nama_tujuan');
-            $table->string('instansi_tujuan');
-            $table->string('alamat');
-            $table->string('kotakab');
+            $table->integer('id_user')->unsigned()->index();
             $table->integer('id_create')->unsigned()->index();
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
+        });
+
+        Schema::table('verifikators', function (Blueprint $table) {
+            $table->foreign('id_user')
+            ->references('id')
+            ->on('users')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+
+            $table->foreign('id_create')
+            ->references('id')
+            ->on('users')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
         });
     }
 
@@ -32,6 +43,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tujuanexternals');
+        Schema::dropIfExists('verifikators');
     }
 };

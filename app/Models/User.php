@@ -9,6 +9,9 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Role;
 use App\Models\Jabatan;
+use App\Models\Unitkerja;
+use App\Models\Verifikator;
+use App\Models\Tujuan;
 
 class User extends Authenticatable
 {
@@ -30,6 +33,8 @@ class User extends Authenticatable
         'username',
         'email',
         'password',
+        'id_opd',
+        'id_unitkerja',
         'id_jabatan',
         'pangkat',
         'jenis_user',
@@ -95,5 +100,15 @@ class User extends Authenticatable
     public function jabatan(): BelongsTo
     {
         return $this->belongsTo(Jabatan::class, 'id_jabatan');
+    }
+
+    public function verifikator()
+    {
+        return $this->hasOne(Verifikator::class);
+    }
+
+    public function tujuan()
+    {
+        return $this->hasOne(Tujuan::class);
     }
 }

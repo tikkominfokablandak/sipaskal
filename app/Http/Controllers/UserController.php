@@ -79,6 +79,7 @@ class UserController extends Controller
 
         $user['username'] = Str::lower($request->username);
         $user['email'] = Str::lower($request->email);
+        $user['password'] = Hash::make($request->password);
 
         User::create($user);
 
@@ -188,5 +189,22 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function select(Request $request)
+    {
+        $user = [];
+        $unitkerjaID = $request->unitkerjaID;
+        if ($request->has('q')) {
+            $search = $request->q;
+            $user = User::join('jabatans','users.id_jabatan','jabatans.id')
+                ->select("id", "nama", "nama_jabatan")
+                ->where('id_unitkerja', $unitkerjaID)
+                ->Where('nama', 'LIKE', "%$search%")
+                ->get();
+        } else {
+            $user = User::where('id_unitkerja', $unitkerjaID)->limit(10)->get();
+        }
+        return response()->json($user);
     }
 }

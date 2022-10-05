@@ -25,6 +25,24 @@ return new class extends Migration
             ->on('users')
             ->onDelete('cascade')
             ->onUpdate('cascade');
+
+            $table->foreign('id_pengirim')
+            ->references('id')
+            ->on('users')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+
+            $table->foreign('id_tujuan')
+            ->references('id')
+            ->on('users')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+
+            $table->foreign('id_jenissurat')
+            ->references('id')
+            ->on('jenissurats')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
         });
     }
 
